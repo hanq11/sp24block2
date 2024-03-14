@@ -16,7 +16,7 @@ CREATE TABLE SinhVien(
 -- Chạy câu lệnh: bôi đen, 
 --   sau đó ấn: F5, hoặc Alt + X, hoặc CTRL + E
 -- bit: 0 - false, 1 - true
--- date: '15-03-2000'
+-- date: '2000-03-15'
 -- varchar: chỉ lưu được các ký tự trong bảng ascii
 --	a-z, A-Z, 0-9
 -- varchar(10) - tối đa 10 ký tự
