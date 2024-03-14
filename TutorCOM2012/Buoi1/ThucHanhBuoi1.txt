@@ -1,0 +1,56 @@
+-- Khai báo với SQL SERVER rằng chúng 
+-- ta đang muốn sử dụng CSDL này
+-- Cú pháp: USE + Tên CSDL
+USE TutorCOM2012Buoi1;
+
+-- Tạo bảng
+CREATE TABLE SinhVien(
+	MaSinhVien varchar(10) PRIMARY KEY,
+	Ten nvarchar(50) NOT NULL,
+	Diem int,
+	NgaySinh date,
+	GioiTinh bit,
+	SoDienThoai varchar(15)
+);
+
+-- Chạy câu lệnh: bôi đen, 
+--   sau đó ấn: F5, hoặc Alt + X, hoặc CTRL + E
+-- bit: 0 - false, 1 - true
+-- date: '15-03-2000'
+-- varchar: chỉ lưu được các ký tự trong bảng ascii
+--	a-z, A-Z, 0-9
+-- varchar(10) - tối đa 10 ký tự
+-- PRIMARY KEY, khi sử dụng, sẽ không có hai bản ghi 
+--	nào trong bảng có giá trị bằng nhau
+-- nvarchar: lưu được cả các ký tự có dấu
+-- NOT NULL: cột NOT NULL bắt buộc phải có dữ liệu
+
+
+-- Hiển thị tất cả dữ liệu từ bảng SinhVien
+SELECT * FROM SinhVien;
+-- Hiển thị dữ liệu MaSinhVien, NgaySinh từ bảng SinhVien
+SELECT MaSinhVien, NgaySinh FROM SinhVien;
+
+-- Thêm dữ liệu vào cho bảng SinhVien
+-- date: YYYY-MM-DD
+INSERT INTO SinhVien
+	(MaSinhVien, Ten, Diem, NgaySinh, GioiTinh, SoDienThoai)
+VALUES
+	('PH1234', N'Nguyễn Xuân Sơn', 7, '2005-05-31', 0, '09876337'),
+	('PH1235', N'Nguyễn Đắc Huy', 8, '1999-08-29', 1, '09874546'),
+	('PH1236', N'Đinh Quân Nhu', 9, '1997-01-23', 1, '098745653');
+-- Hiển thị lại toàn bộ dữ liệu của bảng SinhVien
+SELECT * FROM SinhVien;
+
+
+
+----------------------------
+-- Tổng kết
+-- Tạo Database
+-- Tạo New Query để viết câu lệnh, câu lệnh đầu tiên cần dùng là: USE + TênCSDL
+-- Tạo bảng bằng câu lệnh CREATE TABLE
+	-- Kiểu dữ liệu: varchar, nvarchar, int, date, bit
+	-- PRIMARY KEY: Khóa chính
+	-- NOT NULL: không được phép để trống
+-- Hiển thị các bản ghi của bảng bằng SELECT
+-- Thêm các bản ghi vào bảng bằng câu lệnh INSERT INTO 
