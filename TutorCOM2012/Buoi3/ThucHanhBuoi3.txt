@@ -1,0 +1,79 @@
+USE QuanLyThuVienJava;
+
+CREATE TABLE NhanVien (
+	MaNhanVien varchar(10) PRIMARY KEY,
+	Ten nvarchar(50) NOT NULL,
+	ViTri nvarchar(50),
+	NgaySinh date,
+	DiaChi nvarchar(50)
+);
+
+CREATE TABLE DonHang (
+	MaDonHang varchar(10) PRIMARY KEY,
+	MaNhanVien varchar(10) NOT NULL,
+	NgayTao date,
+	SoLuong int,
+	TongTien int
+);
+
+
+INSERT INTO NhanVien
+	(MaNhanVien, Ten, ViTri, NgaySinh, DiaChi)
+VALUES
+	('PH1',N'Bùi Duy Tôn',N'Giám Đốc','2005-09-12',N'Hà Nội'),
+	('PH2',N'Nguyễn Quang Nam',N'Tổng Đốc','1905-09-12',N'Nam Định'),
+	('PH3',N'Nguyễn Bá Duy',N'Nhân Viên','2005-09-12',N'Thanh Hóa');
+
+SELECT * FROM NhanVien;
+
+INSERT INTO DonHang
+	(MaDonHang, MaNhanVien, NgayTao, SoLuong, TongTien)
+VALUES
+	('DH1','PH2','2023-01-10',9,10),
+	('DH2','PH1','2022-01-10',1,90),
+	('DH3','PH3','2000-01-10',8,100);
+
+SELECT * FROM DonHang;
+
+-- Sửa DiaChi của nhân viên có mã PH1 thành “TP Hồ Chí Minh”
+UPDATE NhanVien
+SET DiaChi = N'TP Hồ Chí Minh'
+WHERE MaNhanVien = 'PH1';
+
+SELECT * FROM NhanVien;
+-- Sửa SoLuong của đơn hàng có TongTien > 45 thành 10
+UPDATE DonHang
+SET SoLuong = 10
+WHERE TongTien > 45;
+--Sửa NgaySinh của nhân viên có mã PH1 thành 1970-02-04
+UPDATE NhanVien
+SET NgaySinh = '1970-02-04'
+WHERE MaNhanVien = 'PH1';
+-- Hiển thị các nhân viên có tên có chứa chữ Thị
+SELECT * FROM NhanVien WHERE Ten LIKE N'%Thị%';
+-- Hiển thị các nhân viên có địa chỉ chứa chữ Hà ở đầu
+SELECT * FROM NhanVien WHERE DiaChi LIKE N'Hà%';
+-- Hiện thị các nhân viên có ngày sinh sau năm 1940
+SELECT * FROM NhanVien WHERE NgaySinh > '1940-12-31';
+-- Hiển thị các đơn hàng có số lượng lớn hơn 5
+SELECT * FROM DonHang WHERE SoLuong > 5;
+-- Xóa các đơn hàng có số lượng nhỏ hơn 5
+DELETE FROM DonHang WHERE SoLuong < 5;
+
+------- ASSIGNMENT GD2
+CREATE TABLE SinhVien (
+	MaSinhVien varchar(10) PRIMARY KEY,
+	HoTen nvarchar(50),
+	TiengAnh int,
+	TinHoc int,
+	GDTC int
+);
+
+INSERT INTO SinhVien
+	(MaSinhVien, HoTen, TiengAnh, TinHoc, GDTC)
+VALUES
+	('PH001', N'Nguyễn Văn A', 5, 3, 8),
+	('PH002', N'Trần Thị C', 4, 7, 2),
+	('PH003', N'Lê Văn D', 8, 9, 8);
+
+SELECT * FROM SinhVien;
